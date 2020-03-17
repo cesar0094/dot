@@ -58,33 +58,14 @@ export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
 export POWERLEVEL9K_ANACONDA_BACKGROUND="244"
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source $HOME/.profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# User configuration
-
-export PATH=$HOME/.anaconda/bin:$PATH
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 export SPICE="$HOME/repos/spice"
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 export GOPATH="$HOME/repos/golang"
 export GOROOT=/usr/local/opt/go/libexec
@@ -92,20 +73,21 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export GIN_MODE=release
 
-# >>> conda initialize >>>
+# Conda setup
+export CONDA_PATH=$HOME/anaconda2
+
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/cesar/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$("$CONDA_PATH/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$CONDA_PATH/etc/profile.d/conda.sh" ]; then
+        . "$CONDA_PATH/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="$CONDA_PATH/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
 unsetopt inc_append_history
 unsetopt share_history
