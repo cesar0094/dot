@@ -53,6 +53,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Prompt
+export POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
+export POWERLEVEL9K_ANACONDA_BACKGROUND="244"
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+
 source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.profile
@@ -93,5 +98,13 @@ unsetopt inc_append_history
 unsetopt share_history
 
 export WTF_OWM_API_KEY=76a4add1ea2c353cc7d90a8c687d0f50
+
+function set-title() {
+  if [[ -z "$ORIG" ]]; then
+    ORIG=$PS1
+  fi
+  TITLE="\[\e]2;$*\a\]"
+  PS1=${ORIG}${TITLE}
+}
 
 source $HOME/.aliases
