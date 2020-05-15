@@ -65,6 +65,20 @@ gco_and_check_wip() {
 	fi
 }
 
+activate_cd() {
+
+	envs=$(cat ~/.conda/environments.txt | grep "/envs/" | awk -F "/" '{print $NF}')
+	dir="${PWD##*/}"
+
+	if [[ "$envs" =~ "$dir" ]]; then
+		conda activate $dir
+	else
+		echo "Environment $dir not found"
+	fi
+}
+
+alias condacd=activate_cd
+
 alias grepr=grep_recursive
 
 alias grm="go run main.go"
