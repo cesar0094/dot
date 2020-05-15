@@ -87,6 +87,7 @@ alias gotestv='go test -race -tags=unit -v $(go list ./... | grep -v '/vendor/' 
 alias gotestint='go test -race -tags=integration $(go list ./... | grep -v '/vendor/' | grep -v configapi | grep -v service-expose)'
 alias gotestintv='go test -race -v -tags=integration $(go list ./... | grep -v '/vendor/' | grep -v configapi | grep -v service-expose)'
 alias kgpo='k get po | grep '
+alias kgp='k get po'
 alias kcc='kubectl config current-context'
 alias kfpo=kfirstpo
 alias klogs=klogsof
