@@ -97,3 +97,5 @@ alias kunhealthy='kubectl get event | grep -v Normal | grep -v "[2-5].m" | grep 
 
 alias k="kubectl"
 alias ks="kubectl --namespace=kube-system"
+
+alias pycheck="flake8 src/ tests/ scripts/; mypy --ignore-missing-imports src/ tests/ scripts/"
