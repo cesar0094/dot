@@ -55,8 +55,8 @@ gco_and_check_wip() {
 	fi
 
 	last_commit=$(git log --format=%B -n 1 -1)
-	if [ "$last_commit" == "WIP" ]; then
-		if [ "$(git status -s)" == "" ]; then
+	if [ "$last_commit" = "WIP" ]; then
+		if [ "$(git status -s)" = "" ]; then
 			echo "Restoring working in progres..."
 			git reset HEAD^
 		else
