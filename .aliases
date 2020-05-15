@@ -12,6 +12,11 @@ alias gl="git pull --rebase"
 alias gsw="git add --all && git commit --no-verify -m 'WIP'"
 alias gr="git reset"
 alias grmmerged="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
+alias gco=gco_and_check_wip
+alias gcob='git checkout -b'
+alias gcwip='ga .; gcmsg "WIP" --no-verify'
+alias grbs='git rebase -i origin/master --autosquash'
+alias gcmf='git commit --fixup'
 
 alias rmr="rm -r"
 alias cpr="cp -r"
@@ -72,9 +77,6 @@ alias kcc='kubectl config current-context'
 alias kfpo=kfirstpo
 alias klogs=klogsof
 alias kunhealthy='kubectl get event | grep -v Normal | grep -v "[2-5].m" | grep " [a-z]\{3,\}-"'
-alias gco=gco_and_check_wip
-alias gcob='git checkout -b'
-alias gcwip='ga .; gcmsg "WIP" --no-verify'
 
 # alias dstartkr="docker rm -f kannel_routing; HOST_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | sed -n 1p) docker run --name kannel_routing -d -p 3040:3040 -e KANNEL_USER=kannelUser -e KANNEL_PASSWORD=kannelPassword -e REDIS_URL=redis://$HOST_IP:6379 -e MYSQL_HOST=$HOST_IP -e MYSQL_PORT=4406 -e MYSQL_USER=root -e MYSQL_PASSWORD=root kannel_routing"
 
