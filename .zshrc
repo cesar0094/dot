@@ -48,6 +48,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	colored-man-pages
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
