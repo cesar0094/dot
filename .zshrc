@@ -59,7 +59,7 @@ export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
 export POWERLEVEL9K_ANACONDA_BACKGROUND="244"
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
-source $ZSH/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
+source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $HOME/.profile
